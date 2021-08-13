@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+/*=======================
+Table of contents:
+A: Mobile
+  1. Global styles
+  2. Typography
+  3. Layout
+    3.1 CARD
+      - image
+      - text section
+      - share section
+        * !!ACTIVE STATE!! *
+    3.2 FOOTER
+
+B: max-width: 320px
+  3. Layout
+    3.1 CARD
+      - share section
+
+C: max-width: 365px
+  3. Layout
+    3.1 CARD
+      - text section
+      - share section & * !!ACTIVE STATE!! *
+
+D: min-width: 920px
+  3. Layout
+    3.1 CARD
+      - image
+      - text section
+      - share section
+        * !!ACTIVE STATE!! *
+=======================*/
+
+/*<<<<<<<<<<<<<<<<<<<<<<
+        A: Mobile
+<<<<<<<<<<<<<<<<<<<<<<<*/
+
+/*--------- 1. Global Styles ----------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+
+  min-height: 100vh;
+  background: var(--light-grayish-blue);
+
+  font-family: 'Manrope', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*--------- 2. Typography ----------*/
+
+h2 {
+  font-size: clamp(1.8rem, 2vw, 4rem);
+  color: var(--very-dark-grayish-blue);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 1vw, 3rem);
+  color: var(--desaturated-dark-blue);
+}
+
+p {
+  font-size: clamp(1.5rem, 1vw, 3rem);
+  color: var(--grayish-blue);
+}
+
+/*--------- 3. Layout ----------*/
+
+/*3.1 CARD*/
+
+main.card {
+  margin: 5rem 0;
+
+  width: 90%;
+  background: white;
+
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 0.4rem 1.5rem var(--grayish-blue);
+}
+
+/*image*/
+
+.drawers {
+  background-image: url(images/drawers.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 70vw;
+}
+
+/*text section*/
+
+section.text_content {
+  padding: 4rem 3.5rem 2rem;
+}
+
+.text_content>p {
+  margin: 1.5rem 0 0;
+}
+
+/*share section*/
+
+section.share_section {
+  position: relative;
+}
+
+.non_active_state {
+  padding: 2rem 3.5rem 2rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.non_active_state h3 {
+  margin-right: 1rem;
+}
+
+.avatar_image {
+  height: 5rem;
+
+  border-radius: 50%;
+}
+
+.name_and_date {
+  margin-left: 2rem;
+}
+
+.share_button {
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+
+  height: 4rem;
+  width: 4rem;
+  background: var(--light-grayish-blue);
+
+  border-radius: 50%;
+}
+
+.share_icon {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 1.8rem;
+}
+
+/* !!ACTIVE STATE!! */
+
+.active_state {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  height: 100%;
+  width: 100%;
+  background: var(--very-dark-grayish-blue);
+
+  padding: 2rem 3.5rem 2rem;
+
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  transform-origin: left;
+
+  animation: share_pin 0.5s ease;
+}
+
+@keyframes share_pin {
+  0% {
+    transform: scaleX(0%);
+  }
+  100%{
+    transform: scaleX(100%);
+  }
+}
+
+.visible {
+  display: flex;
+}
+
+.active_state .share_text {
+  margin-right: 0.5rem;
+
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: var(--grayish-blue);
+}
+
+.social_icon {
+  margin: 0 0.5rem;
+  height: 2.5rem;
+}
+
+/*3.2 FOOTER*/
+
+footer.attribution {
+  position: absolute;
+  bottom: 10px;
+
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<
+   B: max-width: 320px
+<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+@media screen and (max-width: 320px) {
+
+  /*--------- 3. Layout ----------*/
+
+  /*3.1 CARD*/
+
+  /*share section*/
+
+  .non_active_state, .active_state {
+    height: 35vh;
+
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .non_active_state h3, .non_active_state p {
+    text-align: center;
+  }
+
+  .social_icons {
+    margin-bottom: 7rem;
+  }
+
+  .share_button {
+    margin-left: 0;
+  }
+}
+
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<
+   C: max-width: 365px
+<<<<<<<<<<<<<<<<<<<<<<<*/
+
+@media screen and (max-width: 365px) {
+  /*--------- 3. Layout ----------*/
+
+  /*3.1 CARD*/
+
+  /*text section*/
+
+  section.text_content {
+    padding: 4rem 2rem 2rem;
+  }
+
+  /*share section*/ /* !!ACTIVE STATE!! */
+
+  .non_active_state, .active_state {
+    padding: 2rem 2rem 2rem;
+  }
+}
+
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<
+   D: min-width: 920px
+<<<<<<<<<<<<<<<<<<<<<<<*/
+
+@media screen and (min-width: 920px) {
+
+  /*--------- 3. Layout ----------*/
+
+  /*3.1 CARD*/
+
+  main.card {
+    width: 60%;
+
+    overflow: visible;
+
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "image text"
+      "image share";
+  }
+
+  /*image*/
+
+  .drawers {
+    grid-area: image;
+
+    height: 59vh;
+
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  /*text section*/
+
+  section.text_content {
+    grid-area: text;
+
+    height: 45vh
+  }
+
+  /*share section*/
+
+  section.share_section {
+    grid-area: share;
+
+    height: 14vh;
+  }
+
+  /* !!ACTIVE STATE!! */
+
+  .active_state {
+    position: absolute;
+    top: -5rem;
+    right: calc(3.5rem - 115px);
+
+    width: 270px;
+    height: 5rem;
+    transform-origin: center 125%;
+
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 1.5rem var(--grayish-blue);
+
+    animation: share_pin 0.5s ease;
+  }
+
+  .pin {
+    position: absolute;
+    left: 50%;
+    bottom: -1rem;
+
+    width: 2rem;
+    height: 2rem;
+    background: var(--very-dark-grayish-blue);
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -1;
+  }
+
+  @keyframes share_pin {
+    0% {
+      transform: rotate(-60deg) scale(0%);
+    }
+    60%{
+      transform: rotate(15deg) scale(110%);
+    }
+    80%{
+      transform: rotate(-10deg) scale(95%);
+    }
+    100%{
+      transform: rotate(0deg) scale(100%);
+    }
+  }
+}
