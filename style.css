@@ -69,17 +69,17 @@ body {
 /*--------- 2. Typography ----------*/
 
 h2 {
-  font-size: clamp(1.8rem, 2vw, 4rem);
+  font-size: clamp(1.4rem, 1.2vw, 4rem);
   color: var(--very-dark-grayish-blue);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 1vw, 3rem);
+  font-size: clamp(1.2rem, 0.7vw, 2rem);
   color: var(--desaturated-dark-blue);
 }
 
 p {
-  font-size: clamp(1.5rem, 1vw, 3rem);
+  font-size: clamp(1.2rem, 0.7vw, 2rem);
   color: var(--grayish-blue);
 }
 
@@ -95,7 +95,7 @@ main.card {
 
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 0.4rem 1.5rem var(--grayish-blue);
+  box-shadow: 0 0.4rem 3rem var(--grayish-blue);
 }
 
 /*image*/
@@ -115,8 +115,8 @@ section.text_content {
   padding: 4rem 3.5rem 2rem;
 }
 
-.text_content>p {
-  margin: 1.5rem 0 0;
+.text_content > p {
+  margin: 1rem 0 0;
 }
 
 /*share section*/
@@ -168,6 +168,10 @@ section.share_section {
   height: 1.8rem;
 }
 
+.share_icon:hover {
+  cursor: pointer;
+}
+
 /* !!ACTIVE STATE!! */
 
 .active_state {
@@ -176,11 +180,11 @@ section.share_section {
   right: 0;
   z-index: 2;
 
+  padding: 2rem 3.5rem 2rem;
+
   height: 100%;
   width: 100%;
   background: var(--very-dark-grayish-blue);
-
-  padding: 2rem 3.5rem 2rem;
 
   display: none;
   align-items: center;
@@ -215,6 +219,10 @@ section.share_section {
 .social_icon {
   margin: 0 0.5rem;
   height: 2.5rem;
+}
+
+.social_icon:hover {
+  cursor: pointer;
 }
 
 /*3.2 FOOTER*/
@@ -294,17 +302,17 @@ footer.attribution {
 
 
 /*<<<<<<<<<<<<<<<<<<<<<<
-   D: min-width: 920px
+   D: min-width: 981px
 <<<<<<<<<<<<<<<<<<<<<<<*/
 
-@media screen and (min-width: 920px) {
+@media screen and (min-width: 981px) {
 
   /*--------- 3. Layout ----------*/
 
   /*3.1 CARD*/
 
   main.card {
-    width: 60%;
+    width: 55%;
 
     overflow: visible;
 
@@ -320,7 +328,7 @@ footer.attribution {
   .drawers {
     grid-area: image;
 
-    height: 59vh;
+    height: 35vh;
 
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
@@ -331,7 +339,9 @@ footer.attribution {
   section.text_content {
     grid-area: text;
 
-    height: 45vh
+    padding: 3rem 3.5rem 1rem;
+
+    height: 24vh
   }
 
   /*share section*/
@@ -339,7 +349,11 @@ footer.attribution {
   section.share_section {
     grid-area: share;
 
-    height: 14vh;
+    height: 11vh;
+  }
+
+  .non_active_state {
+    padding: 1rem 3.5rem 1rem;
   }
 
   /* !!ACTIVE STATE!! */
@@ -354,7 +368,7 @@ footer.attribution {
     transform-origin: center 125%;
 
     border-radius: 0.8rem;
-    box-shadow: 0 0.4rem 1.5rem var(--grayish-blue);
+    box-shadow: 0 0.4rem 2rem var(--grayish-blue);
 
     animation: share_pin 0.5s ease;
   }

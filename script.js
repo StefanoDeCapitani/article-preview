@@ -5,10 +5,5 @@ var shareIcon = document.querySelector(".share_icon");
 var activeState = document.querySelector(".active_state");
 
 shareButton.addEventListener("click", function(){
-  activeState.classList.add("visible");
-  body.addEventListener("click", function(e) {
-    if(!shareSection.contains(e.target)){
-      activeState.classList.remove("visible");
-    }
-  })
+  activeState.classList.toggle("visible");
 });
